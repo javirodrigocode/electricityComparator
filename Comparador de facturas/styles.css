@@ -1,0 +1,161 @@
+body {
+  background-color: rgb(252, 231, 199);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  margin-top: 30px;
+  width: 80%;
+  font-size: 20px;
+  color: rgb(250, 188, 55);
+  text-align: center;
+  padding: 1em 0;
+  border-radius: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+  
+}
+
+.form-container {
+  background-color: #f7efe6;
+  margin: 20px;
+  width: 45%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  text-align: center;
+  color: #2d5cc2;
+}
+
+h3 {
+  color: #2d5cc2;
+  background-color: rgb(224, 205, 182);
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  flex: 1;
+  text-align: center;
+  margin: 0 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+input {
+  width: calc(100% - 50px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 200px;
+  padding: 20px;
+  background-color: rgb(250, 188, 55);
+  border: #e0a800;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2d5cc2;
+}
+
+#importe {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#results {
+  margin-top: 20px;
+  width: 80%;
+  text-align: center;
+}
+
+.totalAPagar {
+  font-size: 24px; /* Tamaño del texto */
+  color: white; /* Color del texto */
+  background-color: #007bff; /* Color de fondo */
+  border: 2px solid #0056b3; /* Color y grosor del borde */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  text-align: right; /* Alineación del texto */
+}
+
+/* Estilo del overlay que cubre toda la pantalla */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: none; /* Oculto por defecto */
+  z-index: 999; /* Asegúrate de que esté encima del contenido */
+}
+
+/* Estilo del cuadro de resultados */
+#comparisonResultBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff; /* Color de fondo predeterminado */
+  border: 2px solid #ccc; /* Borde predeterminado */
+  border-radius: 8px;
+  padding: 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000; /* Asegúrate de que esté encima del overlay */
+  font-size: 24px; /* Tamaño del texto */
+  color: white; /* Color del texto */
+  display: none; /* Ocultarlo por defecto */
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Estilos para los diferentes tipos de mensajes */
+#comparisonResultBox.saving {
+  background-color: #28a745; /* Verde para ahorro */
+  border-color: #155724; /* Verde oscuro */
+}
+
+#comparisonResultBox.additional-cost {
+  background-color: #dc3545; /* Rojo para costo adicional */
+  border-color: #c82333; /* Rojo oscuro */
+}
+
+#comparisonResultBox.equal-cost {
+  background-color: #ffc107; /* Amarillo para costo igual */
+  border-color: #e0a800; /* Amarillo oscuro */
+}
+
+/* Oculta el cuadro de resultados */
+#comparisonResultBox.hidden {
+  display: none;
+}
