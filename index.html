@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Facturas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Comparador de Facturas de Electricidad</h1>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <h2>Compañía Actual</h2>
+            <form id="comparisonFormCurrent" class="comparison-form">
+                <h3>Potencia</h3>                
+                <div class="potencia-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <h4>Punta</h4>
+                        </div>
+                        <div class="input-group">
+                            <label for="currentPuntaKw">kW Contratados</label>
+                            <input type="number" id="currentPuntaKw" name="currentPuntaKw" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="currentPuntaDias">Nº Días</label>
+                            <input type="number" id="currentPuntaDias" name="currentPuntaDias" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="currentPuntaPrecio">Pvc kW/día (€)</label>
+                            <input type="number" id="currentPuntaPrecio" name="currentPuntaPrecio" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Importe</label>
+                            <div id="currentPuntaImporte"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="potencia-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <h4>Valle</h4>
+                        </div>
+                        <div class="input-group">
+                            <label for="currentValleKw">kW Contratados</label>
+                            <input type="number" id="currentValleKw" name="currentValleKw" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="currentValleDias">Nº Días</label>
+                            <input type="number" id="currentValleDias" name="currentValleDias" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="currentVallePrecio">Pvc kW/día (€)</label>
+                            <input type="number" id="currentVallePrecio" name="currentVallePrecio" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Importe</label>
+                            <div id="currentValleImporte"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="potencia-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Importe Total Potencia</label>
+                            <div id="currentTotalPotenciaImporte">€0.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h3>Energía Consumida</h3>
+                    <div class="energia-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Punta</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentConsumoPuntaKwh">kWh Consumidos</label>
+                                <input type="number" id="currentConsumoPuntaKwh" name="currentConsumoPuntaKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPrecioPuntaKwh">Precio por kWh (€)</label>
+                                <input type="number" id="currentPrecioPuntaKwh" name="currentPrecioPuntaKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImportePunta"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energia-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Llano</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentConsumoLlanoKwh">kWh Consumidos</label>
+                                <input type="number" id="currentConsumoLlanoKwh" name="currentConsumoLlanoKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPrecioLlanoKwh">Precio por kWh (€)</label>
+                                <input type="number" id="currentPrecioLlanoKwh" name="currentPrecioLlanoKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteLlano"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energia-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Valle</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentConsumoValleKwh">kWh Consumidos</label>
+                                <input type="number" id="currentConsumoValleKwh" name="currentConsumoValleKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPrecioValleKwh">Precio por kWh (€)</label>
+                                <input type="number" id="currentPrecioValleKwh" name="currentPrecioValleKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteValle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="energia-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Importe Total Energía</label>
+                            <div id="currentTotalEnergiaImporte">€0.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">                    
+                    <div class="input-row">
+                        <h3>Otros Conceptos</h3>
+                        <div class="input-group">
+                            <label> Importe (€)</label>
+                            <div id="currentImporteOthers">€0.00</div>
+                        </div>
+                    </div>                   
+                    
+                    <div class="others-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Bono Social</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentDiasBono">Nº Días</label>
+                                <input type="number" id="currentDiasBono" name="currentDiasBono" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPrecioBono">Precio por día (€)</label>
+                                <input type="number" id="currentPrecioBono" name="currentPrecioBono" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteBono"></div>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Alquiler de Equipos</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentDiasAlquiler">Nº Días</label>
+                                <input type="number" id="currentDiasAlquiler" name="currentDiasAlquiler" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPrecioAlquiler">Precio por día (€)</label>
+                                <input type="number" id="currentPrecioAlquiler" name="currentPrecioAlquiler" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteAlquiler"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-row">
+                        <h3>Impuestos</h3>
+                        <div class="input-group">
+                            <label>Importe (€)</label>
+                            <div id="currentImporteTaxes">€0.00</div>
+                        </div>
+                    </div>
+                    <div class="taxes-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Impuesto Eléctrico</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentImpuestoElectricidad">Total (€)</label>
+                                <input type="number" id="currentImpuestoElectricidad" name="currentImpuestoElectricidad" step="0.01" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPorcentajeImpuesto">Porcentaje (%)</label>
+                                <input type="number" id="currentPorcentajeImpuesto" name="currentPorcentajeImpuesto" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteImpuesto"></div>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>IVA</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentBaseImponibleIVA">Base Imponible (€)</label>
+                                <input type="number" id="currentBaseImponibleIVA" name="currentBaseImponibleIVA" step="0.01" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPorcentajeIVA">Porcentaje (%)</label>
+                                <input type="number" id="currentPorcentajeIVA" name="currentPorcentajeIVA" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteIVA"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="total-section">
+                        <div class="input-row">
+                            <h3>Total factura</h3>
+                            <div class="input-group">
+                                <label for="currentTotalFactura">Importe (€)</label>
+                                <input type="number" id="currentTotalFactura" name="currentTotalFactura" step="0.01" readonly>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-row">
+                        <h3>Servicios Contratados</h3>
+                    <div class="input-group">
+                        <label>Importe (€)</label>
+                        <div id="currentImporteServicios">€0.00</div>
+                    </div>
+                </div>
+                    
+                    <div class="services-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="currentServiciosContratados"></label>
+                                <input type="text" id="currentServiciosContratados" name="currentServiciosContratados">
+                            </div>
+                            <div class="input-group">
+                                <label for="currentCostoServicios">Precio (€)</label>
+                                <input type="number" id="currentCostoServicios" name="currentCostoServicios" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPorcentajeIVA">IVA (%)</label>
+                                <input type="number" id="currentPorcentajeIVA" name="currentPorcentajeIVA" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteTotalServicio"></div>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="currentServiciosContratados"></label>
+                                <input type="text" id="currentServiciosContratados2" name="currentServiciosContratados">
+                            </div>
+                            <div class="input-group">
+                                <label for="currentCostoServicios">Precio (€)</label>
+                                <input type="number" id="currentCostoServicios2" name="currentCostoServicios" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPorcentajeIVA">IVA (%)</label>
+                                <input type="number" id="currentPorcentajeIVA2" name="currentPorcentajeIVA" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteTotalServicio2"></div>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="currentServiciosContratados"></label>
+                                <input type="text" id="currentServiciosContratados3" name="currentServiciosContratados">
+                            </div>
+                            <div class="input-group">
+                                <label for="currentCostoServicios">Precio (€)</label>
+                                <input type="number" id="currentCostoServicios3" name="currentCostoServicios" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label for="currentPorcentajeIVA">IVA (%)</label>
+                                <input type="number" id="currentPorcentajeIVA3" name="currentPorcentajeIVA" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="currentImporteTotalServicio3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="discount-section">
+                        <div class="input-row">
+                            <h3>Descuentos</h3>
+                            <div class="input-group">
+                                <label for="currentDescuentos">Importe (€)</label>
+                                <input type="number" id="currentDescuentos" name="currentDescuentos" step="0.01" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">                    
+                    <div class="totalFinal-section">                        
+                        <div class="input-row">
+                            <h2>Total a pagar</h3>
+                            <div class="input-group">
+                                <label for="currentTotalAPagar">Importe (€)</label>
+                                <input type="number" id="currentTotalAPagar" name="currentTotalAPagar" step="0.01" readonly class="totalAPagar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--Compañia en estudio-->
+        <div class="form-container">
+            <h2>Compañía en Estudio</h2>
+            <form id="comparisonFormNew" class="comparison-form">
+                <h3>Potencia</h3>
+                <div class="potencia-section">                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <h4>Punta</h4>
+                        </div>                        
+                        <div class="input-group">
+                            <label for="newPuntaKw">kW Contratados</label>
+                            <input type="number" id="newPuntaKw" name="newPuntaKw" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="newPuntaDias">Nº Días</label>
+                            <input type="number" id="newPuntaDias" name="newPuntaDias" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="newPuntaPrecio">Pvc kW/día (€)</label>
+                            <input type="number" id="newPuntaPrecio" name="newPuntaPrecio" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Importe</label>
+                            <div id="newPuntaImporte"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="potencia-section">                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <h4>Valle</h4>
+                        </div>
+                        <div class="input-group">
+                            <label for="newValleKw">kW Contratados</label>
+                            <input type="number" id="newValleKw" name="newValleKw" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="newValleDias">Nº Días</label>
+                            <input type="number" id="newValleDias" name="newValleDias" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="newVallePrecio">Pvc kW/día (€)</label>
+                            <input type="number" id="newVallePrecio" name="newVallePrecio" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Importe</label>
+                            <div id="newValleImporte"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="potencia-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Importe Total Potencia</label>
+                            <div id="newTotalPotenciaImporte">€0.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h3>Energía Consumida</h3>
+                    <div class="energia-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Punta</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="newConsumoPuntaKwh">kWh Consumidos</label>
+                                <input type="number" id="newConsumoPuntaKwh" name="newConsumoPuntaKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="newPrecioPuntaKwh">Precio por kWh (€)</label>
+                                <input type="number" id="newPrecioPuntaKwh" name="newPrecioPuntaKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImportePunta"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energia-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Llano</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="newConsumoLlanoKwh">kWh Consumidos</label>
+                                <input type="number" id="newConsumoLlanoKwh" name="newConsumoLlanoKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="newPrecioLlanoKwh">Precio por kWh (€)</label>
+                                <input type="number" id="newPrecioLlanoKwh" name="newPrecioLlanoKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteLlano"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energia-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Valle</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="newConsumoValleKwh">kWh Consumidos</label>
+                                <input type="number" id="newConsumoValleKwh" name="newConsumoValleKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="newPrecioValleKwh">Precio por kWh (€)</label>
+                                <input type="number" id="newPrecioValleKwh" name="newPrecioValleKwh" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteValle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="energia-section">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Importe Total Energía</label>
+                            <div id="newTotalEnergiaImporte">€0.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-row">
+                        <h3>Otros Conceptos</h3>
+                        <div class="input-group">
+                            <label> Importe (€)</label>
+                            <div id="newImporteOthers">€0.00</div>
+                        </div>
+                    </div>
+                    <div class="others-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Bono Social</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="newDiasBono">Nº Días</label>
+                                <input type="number" id="newDiasBono" name="newDiasBono" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="newPrecioBono">Precio por día (€)</label>
+                                <input type="number" id="newPrecioBono" name="newPrecioBono" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteBono"></div>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Alquiler de Equipos</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="newDiasAlquiler">Nº Días</label>
+                                <input type="number" id="newDiasAlquiler" name="newDiasAlquiler" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="newPrecioAlquiler">Precio por día (€)</label>
+                                <input type="number" id="newPrecioAlquiler" name="newPrecioAlquiler" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteAlquiler"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-row">
+                        <h3>Impuestos</h3>
+                        <div class="input-group">
+                            <label>Importe</label>
+                            <div id="newImporteTaxes">€0.00</div>
+                        </div>
+                    </div>   
+                    <div class="taxes-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>Impuesto Eléctrico</h4>
+                            </div>                                                        
+                            <div class="input-group">
+                                <label for="newImpuestoElectricidad">Total (€)</label>
+                                <input type="number" id="newImpuestoElectricidad" name="newImpuestoElectricidad" step="0.01" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label for="newPorcentajeImpuesto">Porcentaje (%)</label>
+                                <input type="number" id="newPorcentajeImpuesto" name="newPorcentajeImpuesto" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteImpuesto"></div>
+                            </div>
+                        </div>                    
+                        <div class="input-row">
+                            <div class="input-group">
+                                <h4>IVA</h4>
+                            </div>
+                            <div class="input-group">
+                                <label for="newBaseImponibleIVA">Base Imponible (€)</label>
+                                <input type="number" id="newBaseImponibleIVA" name="newBaseImponibleIVA" step="0.01" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label for="newPorcentajeIVA">Porcentaje (%)</label>
+                                <input type="number" id="newPorcentajeIVA" name="newPorcentajeIVA" step="0.01" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteIVA"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                
+                <div class="form-group">
+                    <div class="total-section">
+                        <div class="input-row">
+                            <h3>Total factura</h3>
+                            <div class="input-group">
+                                <label for="newTotalFactura">Importe (€)</label>
+                                <input type="number" id="newTotalFactura" name="newTotalFactura" step="0.01" readonly>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <div class="input-row">
+                            <h3>Servicios Contratados</h3>
+                        <div class="input-group">
+                            <label>Importe (€)</label>
+                            <div id="newImporteServicios">€0.00</div>
+                        </div>
+                    </div>
+                    <div class="services-section">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="newServiciosContratados"></label>
+                                <input type="text" id="newServiciosContratados" name="newServiciosContratados">
+                            </div>
+                            <div class="input-group">
+                                <label for="newCostoServicios">Precio (€)</label>
+                                <input type="number" id="newCostoServicios" name="newCostoServicios" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label for="newPorcentajeIVA1">IVA (%)</label>
+                                <input type="number" id="newPorcentajeIVA" name="newPorcentajeIVA1" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteTotalServicio"></div>
+                            </div>                            
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="newServiciosContratados"></label>
+                                <input type="text" id="newServiciosContratados2" name="newServiciosContratados">
+                            </div>
+                            <div class="input-group">
+                                <label for="newCostoServicios">Precio (€)</label>
+                                <input type="number" id="newCostoServicios2" name="newCostoServicios" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label for="newPorcentajeIVA2">IVA (%)</label>
+                                <input type="number" id="newPorcentajeIVA2" name="newPorcentajeIVA2" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteTotalServicio2"></div>
+                            </div>                            
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="newServiciosContratados"></label>
+                                <input type="text" id="newServiciosContratados3" name="newServiciosContratados">
+                            </div>
+                            <div class="input-group">
+                                <label for="newCostoServicios">Precio (€)</label>
+                                <input type="number" id="newCostoServicios3" name="newCostoServicios" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label for="newPorcentajeIVA3">IVA (%)</label>
+                                <input type="number" id="newPorcentajeIVA3" name="newPorcentajeIVA3" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label>Importe</label>
+                                <div id="newImporteTotalServicio3"></div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="form-group">                    
+                    <div class="discount-section">                        
+                        <div class="input-row">
+                            <h3>Descuentos</h3>
+                            <div class="input-group">
+                                <label for="newDescuentos">Importe (€)</label>
+                                <input type="number" id="newDescuentos" name="newDescuentos" step="0.01">
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <div class="form-group">                    
+                    <div class="totalFinal-section">                        
+                        <div class="input-row">
+                            <h2>Total a pagar</h3>
+                            <div class="input-group">
+                                <label for="newTotalAPagar">Importe (€)</label>
+                                <input type="number" id="newTotalAPagar" name="newTotalAPagar" step="0.01" readonly class="totalAPagar">
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+            </form>
+        </div>            
+    </div>
+    <div id="overlay"></div>
+<div class="form-group">
+    <button type="button" id="compareButton" style="display: block; margin: 0 auto;">Comparar</button>
+</div>
+<div class="container">
+    <!-- Aquí se mostrarán los resultados -->
+    <div id="comparisonResultBox" class="modal hidden"></div>
+</div>
+    
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
