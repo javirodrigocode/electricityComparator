@@ -23,7 +23,6 @@ header {
   justify-content: space-around;
   width: 100%;
   margin-top: 20px;
-  
 }
 
 .form-container {
@@ -158,4 +157,38 @@ button:hover {
 /* Oculta el cuadro de resultados */
 #comparisonResultBox.hidden {
   display: none;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Cambia a disposición vertical en pantallas pequeñas */
+    align-items: center;
+  }
+
+  .form-container {
+    width: 90%; /* Usa casi todo el ancho en móviles */
+    margin: 10px 0;
+  }
+
+  input {
+    width: 100%; /* Elimina el cálculo fijo en móviles */
+  }
+
+  button {
+    width: 100%; /* Botones más anchos en móviles */
+  }
+
+  h2, h3 {
+    font-size: 18px; /* Ajusta el tamaño de las cabeceras */
+  }
+
+  .totalAPagar {
+    font-size: 18px; /* Reduce el tamaño del texto */
+  }
+
+  #comparisonResultBox {
+    padding: 20px;
+    font-size: 18px;
+  }
 }
